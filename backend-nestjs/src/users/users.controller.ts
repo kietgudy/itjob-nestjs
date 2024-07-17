@@ -9,11 +9,12 @@ export class UsersController {
 
   @Post()
   create(
-    @Body('email') email: string,
-    @Body('password') password: string,
-    @Body('name') name: string,
+    // @Body('email') email: string,
+    // @Body('password') password: string,
+    // @Body('name') name: string,
+    @Body() createUserDto: CreateUserDto
   ) {
-    return this.usersService.create(email, password, name);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()
