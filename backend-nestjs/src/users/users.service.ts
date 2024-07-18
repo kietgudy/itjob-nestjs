@@ -38,8 +38,8 @@ export class UsersService {
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(updateUserDto: UpdateUserDto) {
+    return await this.userModel.updateOne({_id: updateUserDto._id}, {...updateUserDto});
   }
 
   remove(id: number) {
