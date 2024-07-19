@@ -28,10 +28,10 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
   providers: [
     AppService,
     //global auth guard
-    {
-      provide: APP_GUARD,
-      useClass: JwtAuthGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: JwtAuthGuard,
+    // },
   ],
 })
 export class AppModule {}
