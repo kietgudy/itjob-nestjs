@@ -23,15 +23,30 @@ export class CompaniesService {
   }
   async update(id: string, updateCompanyDto: UpdateCompanyDto, user: IUser) {
     return await this.companyModel.updateOne(
-      {_id: id},
+      { _id: id },
       {
         ...updateCompanyDto,
         updatedBy: {
           _id: user._id,
-          email: user.email
-        }
-      }
+          email: user.email,
+        },
+      },
     );
+  }
+
+  async remove(id: string, user: IUser) {
+    await this.companyModel.updateOne(
+      { _id: id },
+      {
+        deletedBy: {
+          _id: user._id,
+          email: user.email,
+        },
+      },
+    );
+    return this.companyModel.softDelete({
+      _id: id,
+    });
   }
 
   findAll() {
@@ -40,9 +55,5 @@ export class CompaniesService {
 
   findOne(id: number) {
     return `This action returns a #${id} company`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} company`;
   }
 }

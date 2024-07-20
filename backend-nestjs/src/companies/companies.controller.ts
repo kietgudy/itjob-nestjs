@@ -31,6 +31,11 @@ export class CompaniesController {
     return this.companiesService.update(id, updateCompanyDto, user);
   }
 
+  @Delete(':id')
+  remove(@Param('id') id: string, @User() user: IUser) {
+    return this.companiesService.remove(id, user);
+  }
+
   @Get()
   findAll() {
     return this.companiesService.findAll();
@@ -39,10 +44,5 @@ export class CompaniesController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.companiesService.findOne(+id);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.companiesService.remove(+id);
   }
 }
