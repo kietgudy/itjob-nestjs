@@ -21,6 +21,18 @@ export class CompaniesService {
       },
     });
   }
+  async update(id: string, updateCompanyDto: UpdateCompanyDto, user: IUser) {
+    return await this.companyModel.updateOne(
+      {_id: id},
+      {
+        ...updateCompanyDto,
+        updatedBy: {
+          _id: user._id,
+          email: user.email
+        }
+      }
+    );
+  }
 
   findAll() {
     return `This action returns all companies`;
@@ -28,10 +40,6 @@ export class CompaniesService {
 
   findOne(id: number) {
     return `This action returns a #${id} company`;
-  }
-
-  update(id: number, updateCompanyDto: UpdateCompanyDto) {
-    return `This action updates a #${id} company`;
   }
 
   remove(id: number) {
