@@ -51,7 +51,7 @@ export class CompaniesService {
   }
 
   async findAll(currentPage: number, limit: number, qs: string) {
-    const { filter, sort, projection, population } = aqp(qs);
+    const { filter, sort, population } = aqp(qs);
     delete filter.page;
     delete filter.limit;
     const offset = (+currentPage - 1) * +limit;
