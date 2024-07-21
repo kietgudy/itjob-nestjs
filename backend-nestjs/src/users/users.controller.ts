@@ -6,11 +6,12 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ResponseMessage, User } from 'src/decorator/customize';
+import { Public, ResponseMessage, User } from 'src/decorator/customize';
 import { IUser } from './users.interface';
 
 @Controller('users')
@@ -20,28 +21,40 @@ export class UsersController {
   @Post()
   @ResponseMessage('Tạo tài khoản thành công')
   async create(@Body() createUserDto: CreateUserDto, @User() user: IUser) {
-    const newUser = await this.usersService.create(createUserDto, user)
+    const newUser = await this.usersService.create(createUserDto, user);
     return {
-      _id:newUser?._id,
-      createdAt: newUser?.createdAt
+      _id: newUser?._id,
+      createdAt: newUser?.createdAt,
     };
   }
 
-
+  @Patch()
+  @ResponseMessage('Cập nhật tài khoản thành công')
+  async update(@Body() updateUserDto: UpdateUserDto, @User() user: IUser) {
+    const updateUser = await this.usersService.update(updateUserDto, user);
+    return updateUser;
+  }
 
   @Get()
-  findAll() {
-    return this.usersService.findAll();
+  @ResponseMessage('Fetch user with paginate')
+  findAll(
+    @Query("page") currentPage: string,
+    @Query("limit") limit: string,
+    @Query() qs: string
+  ) {
+    return this.usersService.findAll(+currentPage, +limit, qs);
   }
 
+  @Public()
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(id);
+  @ResponseMessage("Fetch user by id")
+  async findOne(@Param('id') id: string) {
+    return await this.usersService.findOne(id);
   }
-
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(id);
+  @ResponseMessage('Xóa tài khoản thành công')
+  remove(@Param('id') id: string, @User() user: IUser) {
+    return this.usersService.remove(id, user);
   }
 }
