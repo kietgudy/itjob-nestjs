@@ -29,20 +29,20 @@ export class UsersService {
     if (isExist) {
       throw new BadRequestException(`Email ${email} đã tồn tại`);
     }
-    const hashPassword = this.getHashPassword(createUserDto.password);
+    const hashPassword = this.getHashPassword(password);
     // eslint-disable-next-line prefer-const
     let newUser = await this.userModel.create({
       email,
-      password: hashPassword,
       name,
+      password: hashPassword,
       age,
       gender,
       address,
       role,
       company,
       createdBy: {
-        _id: user?._id,
-        email: user?.email,
+        _id: user._id,
+        email: user.email,
       },
     });
     return newUser;
@@ -75,31 +75,32 @@ export class UsersService {
     const defaultLimit = +limit ? +limit : 10;
     const totalItems = (await this.userModel.find(filter)).length;
     const totalPages = Math.ceil(totalItems / defaultLimit);
-    const result = await this.userModel 
+    const result = await this.userModel
       .find(filter)
       .skip(offset)
       .limit(defaultLimit)
-      // @ts-ignore: Unreachable code error
-      .sort(sort)
+      .sort(sort as any)
       .select('-password')
       .populate(population)
       .exec();
-      return {
-        meta: {
-          current: currentPage, //trang hiện tại
-          pageSize: limit, //số lượng bản ghi đã lấy
-          pages: totalPages, //tổng số trang với điều kiện query
-          total: totalItems, // tổng số phần tử (số bản ghi)
-        },
-        result, //kết quả query
-      };
+    return {
+      meta: {
+        current: currentPage, //trang hiện tại
+        pageSize: limit, //số lượng bản ghi đã lấy
+        pages: totalPages, //tổng số trang với điều kiện query
+        total: totalItems, // tổng số phần tử (số bản ghi)
+      },
+      result, //kết quả query
+    };
   }
 
   async findOne(id: string) {
     if (!mongoose.Types.ObjectId.isValid(id)) return 'Not found user';
-    return await this.userModel.findOne({
-      _id: id,
-    }).select("-password")
+    return await this.userModel
+      .findOne({  
+        _id: id,
+      })
+      .select('-password');
   }
   findOneByUsername(username: string) {
     return this.userModel.findOne({
@@ -135,7 +136,7 @@ export class UsersService {
           email: user.email,
         },
       },
-    )
+    );
     return this.userModel.softDelete({
       _id: id,
     });

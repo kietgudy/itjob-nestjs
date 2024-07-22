@@ -22,7 +22,7 @@ export class User {
   @Prop()
   refreshToken: string;
   @Prop({ type: Object })
-  campany: {
+  company: {
     _id: mongoose.Schema.Types.ObjectId;
     name: string;
   };
