@@ -33,6 +33,15 @@ export class AuthController {
     return this.authService.register(registerUserDto);
   }
 
+  @Post('/logout')
+  @ResponseMessage('Đăng xuất thành công')
+  handleLogout(
+    @Res({ passthrough: true }) response: Response,
+    @User() user: IUser,
+  ) {
+    return this.authService.logout(response, user);
+  }
+
   @ResponseMessage('Lấy thông tin người dùng')
   @Get('/account')
   handleGetAccount(@User() user: IUser) {
@@ -42,8 +51,11 @@ export class AuthController {
   @Public()
   @ResponseMessage('Lấy refresh token')
   @Get('/refresh')
-  handleRefreshToken(@Req() request: Request, @Res({ passthrough: true }) response: Response) {
-    const refreshToken = request.cookies["refresh_token"]
+  handleRefreshToken(
+    @Req() request: Request,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const refreshToken = request.cookies['refresh_token'];
     return this.authService.getRefreshToken(refreshToken, response);
   }
 }

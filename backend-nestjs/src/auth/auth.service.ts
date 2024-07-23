@@ -60,6 +60,11 @@ export class AuthService {
       createdAt: newUser?.createdAt,
     };
   }
+  async logout(response: Response, user: IUser) {
+    await this.usersService.updateUserToken('', user._id);
+    response.clearCookie('refresh_token');
+    return 'OK';
+  }
   createRefreshToken = (payload: any) => {
     const refresh_token = this.jwtService.sign(payload, {
       secret: this.configService.get<string>('JWT_REFRESH_TOKEN_SECRET'),
