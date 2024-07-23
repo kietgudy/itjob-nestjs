@@ -97,7 +97,7 @@ export class UsersService {
   async findOne(id: string) {
     if (!mongoose.Types.ObjectId.isValid(id)) return 'Not found user';
     return await this.userModel
-      .findOne({  
+      .findOne({
         _id: id,
       })
       .select('-password');
@@ -141,4 +141,13 @@ export class UsersService {
       _id: id,
     });
   }
+
+  updateUserToken = async (refreshToken: string, _id: string) => {
+    return await this.userModel.updateOne(
+      { _id },
+      {
+        refreshToken,
+      },
+    );
+  };
 }
