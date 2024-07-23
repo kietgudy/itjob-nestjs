@@ -22,6 +22,7 @@ import { RegisterUserDto } from 'src/users/dto/create-user.dto';
     @Public()
     @UseGuards(LocalAuthGuard)
     @Post('/login')
+    @ResponseMessage("Đăng nhập thành công")
     handleLogin(@Request() req) {
       return this.authService.login(req.user);
     }
