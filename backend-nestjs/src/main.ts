@@ -24,9 +24,10 @@ async function bootstrap() {
   app.use(cookieParser());
   //config cors
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    "preflightContinue": false,
+    credentials: true,  
   });
 
   //config versioning
