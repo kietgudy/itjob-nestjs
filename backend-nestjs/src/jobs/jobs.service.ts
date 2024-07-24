@@ -82,7 +82,7 @@ export class JobsService {
 
   async update(_id: string, updateJobDto: UpdateJobDto, user: IUser) {
     const updated = await this.jobModel.updateOne(
-      { _id},
+      { _id },
       {
         ...updateJobDto,
         updatedBy: {
@@ -94,7 +94,19 @@ export class JobsService {
     return updated;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} job`;
+  async remove(_id: string, user: IUser) {
+    if (!mongoose.Types.ObjectId.isValid(_id)) return 'Not found job';
+    await this.jobModel.updateOne(
+      { _id },
+      {
+        deletedBy: {
+          _id: user._id,
+          email: user.email,
+        },
+      },
+    );
+    return this.jobModel.softDelete({
+      _id,
+    });
   }
 }

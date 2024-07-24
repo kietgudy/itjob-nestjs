@@ -51,7 +51,8 @@ export class JobsController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.jobsService.remove(+id);
+  @ResponseMessage('Xóa công việc thành công')
+  remove(@Param('id') id: string, @User() user: IUser,) {
+    return this.jobsService.remove(id, user);
   }
 }
