@@ -27,9 +27,9 @@ export class JobsController {
   @Get()
   @ResponseMessage('Fetch jobs with paginate')
   findAll(
-    @Query("current") currentPage: string,
-    @Query("pageSize") limit: string,
-    @Query() qs: string
+    @Query('current') currentPage: string,
+    @Query('pageSize') limit: string,
+    @Query() qs: string,
   ) {
     return this.jobsService.findAll(+currentPage, +limit, qs);
   }
@@ -41,8 +41,13 @@ export class JobsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateJobDto: UpdateJobDto) {
-    return this.jobsService.update(+id, updateJobDto);
+  @ResponseMessage('Cập nhật công việc thành công')
+  update(
+    @Param('id') id: string,
+    @Body() updateJobDto: UpdateJobDto,
+    @User() user: IUser,
+  ) {
+    return this.jobsService.update(id, updateJobDto, user);
   }
 
   @Delete(':id')
