@@ -7,6 +7,8 @@ class Company {
     _id: mongoose.Schema.Types.ObjectId;;
     @IsNotEmpty()
     name: string;
+    @IsNotEmpty()
+    logo: string;
   }
 
 export class CreateJobDto {
@@ -16,6 +18,8 @@ export class CreateJobDto {
   @IsNotEmpty({message: 'Kỹ năng không được để trống!'})
   @IsString({each: true, message: 'Kỹ năng có định dạng là chuỗi ký tự'})
   skills: string[];
+  @IsNotEmpty({message: 'Địa điểm không được để trống!'})
+  location: string;
   @IsNotEmpty({message: 'Tiền lương không được để trống!'})
   salary: number;
   @IsNotEmpty({message: 'Số lượng không được để trống!'})
