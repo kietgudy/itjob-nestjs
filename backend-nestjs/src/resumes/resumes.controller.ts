@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { ResumesService } from './resumes.service';
 import { CreateResumeDto, CreateUserCvDto } from './dto/create-resume.dto';
 import { UpdateResumeDto } from './dto/update-resume.dto';
@@ -16,8 +16,13 @@ export class ResumesController {
   }
 
   @Get()
-  findAll() {
-    return this.resumesService.findAll();
+  @ResponseMessage("Fetch all CV with paginate")
+  findAll(
+    @Query("current") currentPage: string,
+    @Query("pageSize") limit: string,
+    @Query() qs: string,
+  ) {
+    return this.resumesService.findAll(+currentPage, +limit, qs);
   }
 
   @Get(':id')
@@ -26,8 +31,9 @@ export class ResumesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateResumeDto: UpdateResumeDto) {
-    return this.resumesService.update(+id, updateResumeDto);
+  @ResponseMessage("Cập nhật CV thành công")
+  updateStatus(@Param('id') id: string, @Body("status") status: string, @User() user: IUser) {
+    return this.resumesService.update(id, status, user);
   }
 
   @Delete(':id')
