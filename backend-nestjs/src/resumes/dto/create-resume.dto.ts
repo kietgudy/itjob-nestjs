@@ -18,9 +18,11 @@ export class CreateResumeDto {
 export class CreateUserCvDto {
   @IsNotEmpty({ message: 'URL không được để trống!' })
   url: string;
+  
   @IsNotEmpty({ message: 'ID công ty không được để trống!' })
   @IsMongoId({ message: 'ID công ty là 1 id trong mongo' })
   companyId: mongoose.Schema.Types.ObjectId;
+
   @IsNotEmpty({ message: 'ID công việc không được để trống!' })
   @IsMongoId({ message: 'ID công việc là 1 id trong mongo' })
   jobId: mongoose.Schema.Types.ObjectId;
