@@ -75,6 +75,10 @@ export class ResumesService {
     return await this.resumeModel.findById(id);
   }
 
+  async findByUsers(user: IUser) {
+    return await this.resumeModel.find({ userId: user._id });
+  }
+
   async update(_id: string, status: string, user: IUser) {
     if (!mongoose.Types.ObjectId.isValid(_id)) {
       throw new BadRequestException('not found resume');

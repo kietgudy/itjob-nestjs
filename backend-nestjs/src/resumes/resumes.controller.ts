@@ -14,6 +14,11 @@ export class ResumesController {
   create(@Body() createUserCvDto: CreateUserCvDto, @User() user: IUser) {
     return this.resumesService.create(createUserCvDto, user);
   }
+  @Post('by-user')
+  @ResponseMessage("Get CV by user")
+  getResumesByUser(@User() user: IUser) {
+    return this.resumesService.findByUsers(user);
+  }
 
   @Get()
   @ResponseMessage("Fetch all CV with paginate")
