@@ -96,7 +96,18 @@ export class RolesService {
     return updated;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} role`;
+ async remove(id: string, user: IUser) {
+    await this.roleModel.updateOne(
+      { _id: id },
+      {
+        deletedBy: {
+          _id: user._id,
+          email: user.email,
+        },
+      },
+    );
+    return this.roleModel.softDelete({
+      _id: id,
+    });
   }
 }
