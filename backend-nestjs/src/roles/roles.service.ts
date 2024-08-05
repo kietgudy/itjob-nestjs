@@ -6,6 +6,7 @@ import { Role, RoleDocument } from './schemas/role.schema';
 import { SoftDeleteModel } from 'soft-delete-plugin-mongoose';
 import { IUser } from 'src/users/users.interface';
 import aqp from 'api-query-params';
+import mongoose from 'mongoose';
 
 @Injectable()
 export class RolesService {
@@ -21,12 +22,15 @@ export class RolesService {
       throw new BadRequestException(`Name đã tồn tại`);
     }
     const newRole = await this.roleModel.create({
-      name, description, isActive, permissions,
+      name,
+      description,
+      isActive,
+      permissions,
       createdBy: {
         _id: user._id,
         email: user.email,
       },
-    })
+    });
     return {
       _id: newRole?._id,
       createdAt: newRole?.createdAt,
@@ -60,8 +64,14 @@ export class RolesService {
     };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} role`;
+  async findOne(id: string) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      throw new BadRequestException('not found role');
+    }
+    return (await this.roleModel.findById(id)).populate({
+      path: 'permissions',
+      select: { _id: 1, apiPath: 1, name: 1, method: 1 },
+    });
   }
 
   update(id: number, updateRoleDto: UpdateRoleDto) {
