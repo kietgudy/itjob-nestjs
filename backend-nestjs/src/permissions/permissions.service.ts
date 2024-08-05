@@ -92,7 +92,18 @@ export class PermissionsService {
     return updated;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} permission`;
+  async remove(id: string, user: IUser) {
+    await this.permissionModel.updateOne(
+      { _id: id },
+      {
+        deletedBy: {
+          _id: user._id,
+          email: user.email,
+        },
+      },
+    );
+    return this.permissionModel.softDelete({
+      _id: id,
+    });
   }
 }

@@ -54,7 +54,8 @@ export class PermissionsController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.permissionsService.remove(+id);
+  @ResponseMessage('Xóa permission thành công')
+  remove(@Param('id') id: string, @User() user: IUser) {
+    return this.permissionsService.remove(id, user);
   }
 }
