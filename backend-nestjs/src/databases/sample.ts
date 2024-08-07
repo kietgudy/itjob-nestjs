@@ -9,7 +9,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "COMPANIES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -18,7 +18,7 @@ export const INIT_PERMISSIONS = [
         "updatedAt": "2023-06-15T06:54:05.131Z",
         "__v": 0,
         "updatedBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         }
     },
@@ -29,7 +29,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "COMPANIES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -45,7 +45,7 @@ export const INIT_PERMISSIONS = [
         "method": "PATCH",
         "module": "COMPANIES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -61,7 +61,7 @@ export const INIT_PERMISSIONS = [
         "method": "DELETE",
         "module": "COMPANIES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -77,7 +77,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "COMPANIES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -93,7 +93,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "USERS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -109,7 +109,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "USERS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -125,7 +125,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "USERS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -141,7 +141,7 @@ export const INIT_PERMISSIONS = [
         "method": "PATCH",
         "module": "USERS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -157,7 +157,7 @@ export const INIT_PERMISSIONS = [
         "method": "DELETE",
         "module": "USERS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -173,7 +173,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "FILES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -189,7 +189,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "JOBS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -205,7 +205,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "JOBS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -221,7 +221,7 @@ export const INIT_PERMISSIONS = [
         "method": "PATCH",
         "module": "JOBS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -237,7 +237,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "JOBS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -253,7 +253,7 @@ export const INIT_PERMISSIONS = [
         "method": "DELETE",
         "module": "JOBS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -269,7 +269,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "RESUMES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -285,7 +285,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "RESUMES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -301,7 +301,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "RESUMES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -317,7 +317,7 @@ export const INIT_PERMISSIONS = [
         "method": "DELETE",
         "module": "RESUMES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -333,7 +333,7 @@ export const INIT_PERMISSIONS = [
         "method": "PATCH",
         "module": "RESUMES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -349,7 +349,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "RESUMES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -365,7 +365,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "PERMISSIONS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -381,7 +381,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "PERMISSIONS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -397,7 +397,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "PERMISSIONS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -413,7 +413,7 @@ export const INIT_PERMISSIONS = [
         "method": "PATCH",
         "module": "PERMISSIONS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -429,7 +429,7 @@ export const INIT_PERMISSIONS = [
         "method": "DELETE",
         "module": "PERMISSIONS",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -445,7 +445,7 @@ export const INIT_PERMISSIONS = [
         "method": "POST",
         "module": "ROLES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -461,7 +461,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "ROLES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -477,7 +477,7 @@ export const INIT_PERMISSIONS = [
         "method": "GET",
         "module": "ROLES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -493,7 +493,7 @@ export const INIT_PERMISSIONS = [
         "method": "PATCH",
         "module": "ROLES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
@@ -509,7 +509,7 @@ export const INIT_PERMISSIONS = [
         "method": "DELETE",
         "module": "ROLES",
         "createdBy": {
-            "_id": "647b5108a8a243e8191855b5",
+            "_id": "66b33430238a5daf4c399524",
             "email": "admin@gmail.com"
         },
         "isDeleted": false,
