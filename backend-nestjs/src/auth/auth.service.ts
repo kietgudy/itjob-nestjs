@@ -57,6 +57,7 @@ export class AuthService {
         name,
         email,
         role,
+        permissions
       },
     };
   }
@@ -101,6 +102,7 @@ export class AuthService {
         const refresh_token = this.createRefreshToken(payload);
 
         await this.usersService.updateUserToken(refresh_token, _id.toString());
+        //fetch user role
         const userRole = user.role as unknown as { _id: string; name: string }
         const temp = await this.rolesService.findOne(userRole._id);
         //set refresh token as cookies
