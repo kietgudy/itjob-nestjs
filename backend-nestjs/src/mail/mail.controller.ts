@@ -11,13 +11,13 @@ export class MailController {
   ) {}
   @Get()
   @Public()
-  @ResponseMessage('Test email')
+  @ResponseMessage('Đã gửi email')
   async handleTestEmail() {
     await this.mailerService.sendMail({
       to: 'langla76@gmail.com',
       from: '"Kiet Dev" <support@example.com>', // override default from
-      subject: 'Test Email',
-      html: '<b>welcome test</b>', // HTML body content
+      subject: 'Email Company',
+      template: "job"
     });
   }
 }
