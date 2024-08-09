@@ -6,6 +6,7 @@ import { Subscriber, SubscriberDocument } from './schemas/subscriber.schema';
 import { SoftDeleteModel } from 'soft-delete-plugin-mongoose';
 import { IUser } from 'src/users/users.interface';
 import aqp from 'api-query-params';
+import mongoose from 'mongoose';
 
 @Injectable()
 export class SubscribersService {
@@ -30,8 +31,8 @@ export class SubscribersService {
       },
     });
     return {
-      _id:newSubs?._id,
-      createdAt: newSubs?.createdAt
+      _id: newSubs?._id,
+      createdAt: newSubs?.createdAt,
     };
   }
 
@@ -62,8 +63,11 @@ export class SubscribersService {
     };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} subscriber`;
+  async findOne(id: string) {
+    if (!mongoose.Types.ObjectId.isValid(id)) return 'not found subscriber';
+    return await this.subscriberModel.findOne({
+      _id: id,
+    });
   }
 
   update(id: number, updateSubscriberDto: UpdateSubscriberDto) {
