@@ -70,8 +70,18 @@ export class SubscribersService {
     });
   }
 
-  update(id: number, updateSubscriberDto: UpdateSubscriberDto) {
-    return `This action updates a #${id} subscriber`;
+  async update(id: string, updateSubscriberDto: UpdateSubscriberDto, user: IUser) {
+    const updated = await this.subscriberModel.updateOne(
+      { _id: id },
+      {
+        ...updateSubscriberDto,
+        updatedBy: {
+          _id: user._id,
+          email: user.email,
+        },
+      },
+    );
+    return updated;
   }
 
   remove(id: number) {

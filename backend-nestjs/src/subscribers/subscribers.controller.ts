@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { SubscribersService } from './subscribers.service';
 import { CreateSubscriberDto } from './dto/create-subscriber.dto';
 import { UpdateSubscriberDto } from './dto/update-subscriber.dto';
@@ -10,13 +19,16 @@ export class SubscribersController {
   constructor(private readonly subscribersService: SubscribersService) {}
 
   @Post()
-  @ResponseMessage("Tạo mới subcriber")
-  create(@Body() createSubscriberDto: CreateSubscriberDto, @User() user:IUser) {
+  @ResponseMessage('Tạo mới subcriber')
+  create(
+    @Body() createSubscriberDto: CreateSubscriberDto,
+    @User() user: IUser,
+  ) {
     return this.subscribersService.create(createSubscriberDto, user);
   }
 
   @Get()
-  @ResponseMessage("Fetch all subcriber with paginate")
+  @ResponseMessage('Fetch all subcriber with paginate')
   findAll(
     @Query('current') currentPage: string,
     @Query('pageSize') limit: string,
@@ -26,14 +38,19 @@ export class SubscribersController {
   }
 
   @Get(':id')
-  @ResponseMessage("Fetch a subcriber by id")
+  @ResponseMessage('Fetch a subcriber by id')
   findOne(@Param('id') id: string) {
     return this.subscribersService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSubscriberDto: UpdateSubscriberDto) {
-    return this.subscribersService.update(+id, updateSubscriberDto);
+  @ResponseMessage('Cập nhật subcriber thành công')
+  update(
+    @Param('id') id: string,
+    @Body() updateSubscriberDto: UpdateSubscriberDto,
+    @User() user: IUser,
+  ) {
+    return this.subscribersService.update(id, updateSubscriberDto, user);
   }
 
   @Delete(':id')
