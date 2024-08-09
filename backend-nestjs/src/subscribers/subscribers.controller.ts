@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { SubscribersService } from './subscribers.service';
 import { CreateSubscriberDto } from './dto/create-subscriber.dto';
 import { UpdateSubscriberDto } from './dto/update-subscriber.dto';
@@ -16,8 +16,13 @@ export class SubscribersController {
   }
 
   @Get()
-  findAll() {
-    return this.subscribersService.findAll();
+  @ResponseMessage("Fetch all subcriber with paginate")
+  findAll(
+    @Query('current') currentPage: string,
+    @Query('pageSize') limit: string,
+    @Query() qs: string,
+  ) {
+    return this.subscribersService.findAll(+currentPage, +limit, qs);
   }
 
   @Get(':id')
