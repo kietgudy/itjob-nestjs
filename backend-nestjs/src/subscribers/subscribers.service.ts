@@ -84,7 +84,19 @@ export class SubscribersService {
     return updated;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} subscriber`;
+  async remove(id: string, user: IUser) {
+    if (!mongoose.Types.ObjectId.isValid(id)) return 'not found subscriber';
+    await this.subscriberModel.updateOne(
+      { _id: id },
+      {
+        deletedBy: {
+          _id: user._id,
+          email: user.email,
+        },
+      },
+    );
+    return this.subscriberModel.softDelete({
+      _id: id,
+    });
   }
 }
